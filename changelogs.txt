@@ -1,0 +1,47 @@
+10/11/2022:
+-Laid out foundations of codebase:
+ > list str_screw_list to contain each screw and its stock
+ > func file_to_string_list() to read the data file and write to str_screw_list
+
+13/11/2022:
+-Refactored file read loop in file_to_string_list() to a list comprehension
+-Changed str_screw_list to lst_screws_list, now contains each screw listing as its own
+  list of values inside the main list, e.g:
+ [['brass', 'slot', '20', '35', '20', '10', '4.00'], ['brass', 'slot', '40', '40', '42', '40', '5.00']]
+-Added file_to_list_of_lists() as part of above change
+-Added constant list SCREW_COMBO_LIST (and its component lists) as a list all possible combos of screw, e.g:
+ [['brass', 'slot', '20'], ['brass', 'slot', '40'], ['brass', 'slot', '60'], ['brass', 'star', '20']]
+ Originally populated via nested for loops, now refactored and populated via list comprehension.
+ This will be used in later code to match user input with the index of a screw combo.
+ (Very easy to add new material, head-type or length to SCREW_COMBO_LIST in future)
+-Added func show_screw_types(list) to fulfil Basic Feature #1
+
+14/11/2022:
+-Added total inventory summation output for show_screw_types(list)
+-Added documentation for functions, will add more for all future functions
+-Added show_total_units_of_length(list) to fulfil Basic Feature #2
+-Added show_screw_types_with_length(length) to fulfil Basic Feature #3
+ Uses show_screw_types(list) to print report for a shortened list
+-Minor change to show_screw_types(list) to accomodate modularity; added an if statement at its end
+-Added abstract functions increase_stock_level() and decrease_stock_level() to fulfil Advanced Feature #4
+ Will add functionality after Advanced Features #5 and #6 are completed
+
+18/11/2022:
+-Added check_highest_stock_level() and apply_special_discount() to fulfil Advanced Feature #5
+-Added special_discount_screw as a list to keep track of the special discounted screw combo
+
+19/11/2022:
+-Changed logic layout of check_highest_stock_level() better suit what was asked
+-Added units_in_lengths_barchart() to fulfil Advanced Feature #6
+
+20/11/2022:
+-Minor readability improvements to check_highest_stock_level(); added input variable, more whitespace.
+-Added check_stock_level() to fulfil Advanced Feature #4
+-Added input_screw_combo() in case I need to reuse that particular code later.
+-Added update_file() to fulfil Advanced Feature #4
+-Removed increase_stock_level() and decrease_stock_level() as made redundant by above.
+-Added process_sale() to ease readability of sales portion of update(file).
+-Added input_integer() to force int input.
+-Added list_to_string() to shape how strings are inputted to the data file.
+-Changed check_highest_stock_level return type to N/A, now just updates the global special_discount_screw.
+-Added "mm" to length strings because I didn't see that was how the screws were measured :D
